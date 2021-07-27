@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div style="background-image:url({% static 'images/bg.png' %});">
+    <div class="container-fluid">
+        <div class="row">
+<!--            <img src="https://img5.zakaz.uz/096491eb-44c0-4afa-985e-ff9fbed0e038/ru/desktop/45e151.jpg">-->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto my-2 text-left">
+                <h1 class="text-capitalize fw-bold text-center">
+                    our categories
+                </h1>
+<!--                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad beatae consectetur cumque harum ipsa-->
+<!--                    perferendis praesentium quam quo, ut?</h3>-->
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                {% for category in links %}
+                <div class="col-9 mx-auto col-md-3 col-lg-3 my-5">
+                    <div class="card h-100 ">
+                        <div class="p-4">
+                            <a href="{{category.get_url}}"><img class="card-img-top" src="{{ category.image.url }}"
+                                                               alt="{{ category.name }}" height="200px"></a>
+
+                        </div>
+                        <div class="card-body"></div>
+                        <div class="card-footer">
+                            <p class="card-text fw-bold mb-0">{{ category.name }}</p>
+<!--                            <h5 class="text-info mb-0 fst-italic">${{ product.price }}</h5>-->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
